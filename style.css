@@ -38,12 +38,6 @@ html,body {
     letter-spacing: .06em;
 }
 
-img {
-    border: none;
-    max-width: 100%;
-    height: auto;
-    -ms-interpolation-mode: bicubic;
-}
 
 li {
     list-style: none;
@@ -74,42 +68,6 @@ body {
     margin: 0 0 15% 0;
 }
 
-/*------------------------------------------------------------
- 背景
------------------------------------------------------------- */
-#bg,#bg2,#light,#dark {
-    background: #444 url(../img/bg.jpg) 50% 50% no-repeat;/*背景画像指定。変える場合は『../img/bg.jpg』を編集*/
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: auto;
-    height: 100%;
-    z-index: -1;
-}
-
-#bg2 {/*背景のぼかし*/
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-}
-
-#light {/*背景を少し暗くする*/
-    background: rgba(0,0,0,.4);
-    z-index: 0;
-}
-
-#dark {/*小説ページで背景を暗くする*/
-    background: rgba(13,13,13,.7);
-    z-index: 0;
-}
-
 
 /*------------------------------------------------------------
  全体のリンク色
@@ -133,22 +91,6 @@ a:hover img {/*画像の上にマウスを乗せたとき、半透明にする *
     opacity: .5;
 }
 
-/*------------------------------------------------------------
- ハイライト色
- 文章をマウスでハイライトしたときの文字色と背景色
- 両方揃える
------------------------------------------------------------- */
-::selection {
-    background: #E2EFE6;
-    color: #000;
-}
-
-::-moz-selection {
-    background: #E2EFE6;
-    color: #000;
-}
-
-
 
 
 /* ********************************************************* */
@@ -170,7 +112,7 @@ textarea,input[type=text],input[type=reset],input[type=submit],input[type=button
     display: inline;
     outline: none;
     background: rgba(255,255,255,.3);
-    color: #fff;
+    color: #000;
     border: 0;
     border-radius: 0.063em;
     font-size: .9em;
