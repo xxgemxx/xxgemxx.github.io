@@ -1,0 +1,835 @@
+@charset "utf-8";
+/*----------------------------------------------------------------------------------
+  初期設定はあまり触ることをおすすめしません
+  数行下にあるカスタマイズ領域から編集可能となっております
+  @media screen and (max-width: 798px)と
+  @media screen and (max-width: 480px)は
+  タブレットとスマートフォン用の設定です
+  スマートフォンでは通常の文字が小さく見えるので、大きめに設定しています
+---------------------------------------------------------------------------------- */
+
+/* ********************************************************* */
+/* 初期設定 */
+/* ********************************************************* */
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-style: normal;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    word-break: break-all;
+    vertical-align: baseline;
+}
+
+html,body {
+    width: 100%;
+    font-size: 100%;
+    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic ProN', 'Osaka', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    margin: 0 auto;
+    padding: 0;
+    letter-spacing: .06em;
+}
+
+img {
+    border: none;
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+}
+
+li {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+.clear {
+    clear: both;
+}
+
+/* ↓↓ カスタマイズ領域開始 ↓↓
+/* ********************************************************* */
+/* 共通デザイン　1/4　空白、背景、リンク色、ハイライト色
+/* ********************************************************* */
+/*------------------------------------------------------------
+ ページ下の空白
+------------------------------------------------------------ */
+body {
+    margin: 0 0 15% 0;
+}
+
+/*------------------------------------------------------------
+ 背景
+------------------------------------------------------------ */
+#bg,#bg2,#light,#dark {
+    background: #444 url(../img/bg.jpg) 50% 50% no-repeat;/*背景画像指定。変える場合は『../img/bg.jpg』を編集*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    z-index: -1;
+}
+
+#bg2 {/*背景のぼかし*/
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+}
+
+#light {/*背景を少し暗くする*/
+    background: rgba(0,0,0,.4);
+    z-index: 0;
+}
+
+#dark {/*小説ページで背景を暗くする*/
+    background: rgba(13,13,13,.7);
+    z-index: 0;
+}
+
+
+/*------------------------------------------------------------
+ 全体のリンク色
+------------------------------------------------------------ */
+a:link,a:visited,a:active {
+    color: #e6e6e6;/*リンクが貼ってある文字の色 */
+    text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+a:hover {
+    color: rgba(255,255,255,.3);/*リンクが貼ってある文字の上にマウスを乗せたときの色 */
+    text-decoration: none;
+}
+
+a:link img {
+    transition-duration: 0.3s;
+}
+
+a:hover img {/*画像の上にマウスを乗せたとき、半透明にする */
+    opacity: .5;
+}
+
+/*------------------------------------------------------------
+ ハイライト色
+ 文章をマウスでハイライトしたときの文字色と背景色
+ 両方揃える
+------------------------------------------------------------ */
+::selection {
+    background: #E2EFE6;
+    color: #000;
+}
+
+::-moz-selection {
+    background: #E2EFE6;
+    color: #000;
+}
+
+
+
+
+/* ********************************************************* */
+/* 共通デザイン 2/4　フォームレイアウト・デザイン
+/* ********************************************************* */
+/*------------------------------------------------------------
+ フォームの幅と装飾
+------------------------------------------------------------ */
+form {
+    margin: 0 auto;
+    line-height: 160%;
+}
+
+textarea,input[type=text],input[type=reset],input[type=submit],input[type=button],button,select {
+    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic ProN', 'Osaka', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    margin: 0.125em;
+    padding: 3px .313em;
+    clear: both;
+    display: inline;
+    outline: none;
+    background: rgba(255,255,255,.3);
+    color: #fff;
+    border: 0;
+    border-radius: 0.063em;
+    font-size: .9em;
+}
+
+textarea,input[type=text],input[type=reset],input[type=submit],input[type=button],button {
+    appearance: none;
+    -o-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+}
+
+input[type=reset],input[type=submit],input[type=button],button,select {
+    cursor: pointer;
+}
+
+select {
+    color: #111;
+}
+
+textarea {
+    width: 70%;
+    height: 100px;
+}
+
+input[type=text] {
+    width: 35%;
+}
+
+/*------------------------------------------------------------
+ 名前変換フォームの幅と装飾
+------------------------------------------------------------ */
+.design input[type=text] {
+    width: 110px;
+    margin: 3px 0;
+}
+
+.design input[type=button] {
+    padding: 3px 15px;
+    margin: 3px 0;
+}
+
+.design .submit {
+    display: inline-block;
+}
+
+/*------------------------------------------------------------
+ FC2やshinobiからレンタルしたフォームの装飾 削除可
+------------------------------------------------------------ */
+/*↓fc2メールフォーム用 要らなければ削除可↓ */
+#fc2form #coution2 {
+    color: #eee !important;
+    font-family: Verdana;
+}
+
+#fc2form .submit .button {
+    width: 65px;
+}
+/*↑fc2メールフォーム用 要らなければ削除可↑ */
+
+/*↓shinobiメールフォーム用 要らなければ削除可↓ */
+#shinobi_jp_text {
+    width: 100% !important;
+}
+
+#default_top input {
+    font-size: 1em !important;
+}
+
+#default_top br {
+    display: none;
+}
+/*↑shinobiメールフォーム用 要らなければ削除可↑ */
+
+
+/*------------------------------------------------------------
+ フォームに書かれてある初期名詞などの文字色。すべて同じ色で揃える
+------------------------------------------------------------ */
+::-webkit-input-placeholder {
+    color: silver;
+}
+
+::-moz-placeholder {
+    color: silver;
+}
+
+input:-ms-input-placeholder {
+    color: silver;
+}
+
+
+
+
+
+
+/* ********************************************************* */
+/* 共通デザイン 3/4　ヘッダー、トップ文字、メニュー、トップ画像レイアウト
+/* ********************************************************* */
+/*------------------------------------------------------------
+ ヘッダー枠とサイト名の装飾
+------------------------------------------------------------ */
+header,#header1 {
+    width: 100%;
+    background: rgba(68,68,68,.6);
+    position: fixed;
+    top: 0;
+    font-size: .9em;
+    text-align: right;
+    padding: 4px 3px;
+    z-index: 2;
+}
+
+header {
+    position: absolute;
+    background: rgba(255,255,255,.2);
+}
+
+h1 {
+    text-align: left;
+    float: left;
+    position: relative;
+    margin: 0;
+    z-index: 5;
+    width: auto;
+}
+
+h1 a:link,h1 a:visited,h1 a:active {
+    color: #fff;
+    padding: 6px 25px;
+    margin: 0 1px;
+    transition-duration: 0.5s;
+    display: block;
+    font-size: 1.1em;
+}
+
+h1 a:hover {
+    border-radius: 3px;
+    background: rgba(255,255,255,.3 );/* サイト名 マウスを当てたときに表示される半透明の背景 */
+}
+
+/*------------------------------------------------------------
+ indexトップ文字レイアウト
+------------------------------------------------------------ */
+#logo {
+    position: fixed;
+    top: 40%;/*indexのサイトタイトルが表示される位置指定*/
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#call {
+    color: rgba(0,0,0,.9);/*黒文字*/
+    margin: 15px 0 0 0;
+    font-size: 1.5em;/*文字の大きさ*/
+}
+
+/*------------------------------------------------------------
+ メニューレイアウト
+------------------------------------------------------------ */
+#menu{
+    float: right;
+}
+
+#menu > li {
+    float: left;
+    position: relative;
+    height: auto;
+}
+
+#menu > li li{
+display:inline-block;
+}
+
+#menu ul {/*メガメニュー用*/
+    display: none;
+    position: fixed;
+    top: 36px;
+    left: 0;
+    right:0;
+    z-index: 2;
+    background: rgba(255,255,255,0.9);
+    padding: 5px;
+    margin:8px 0 0 0;
+    float:right;
+}
+
+#menu a:link,#menu a:visited,#menu a:active,#menu .mega {/* メニューのリンク装飾 マウスが当たっていない時*/
+    color: #fff;
+    padding: 8px 25px;
+    margin: 0 1px;
+    transition-duration: 0.5s;
+    display: block;
+    font-size: .9em;
+    cursor:pointer;
+}
+
+#menu a:hover,#menu2 a:hover,#menu .mega:hover {/* メニューのリンクレイアウト マウスが当たっている時*/
+    border-radius: 3px;
+    background: rgba(255,255,255,0.3 );
+}
+
+#menu ul li a:link,#menu ul li a:visited,#menu ul li a:active {/* メガメニューのリンク装飾 マウスが当たっていない時*/
+    color:#555;
+}
+
+#menu ul li a:hover {/* メガメニューのリンクレイアウト マウスが当たっている時*/
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    border-radius: 3px;
+}
+
+.tappu_menu {
+    display: none;
+}
+
+
+
+/* ********************************************************* */
+/* 共通デザイン 4/4　主に使われている枠とメイン見出し　小説ページ抜き
+/* ********************************************************* */
+/*------------------------------------------------------------
+ 主に使われている枠
+------------------------------------------------------------ */
+#main {
+    font-size: .9em;
+ /*メニューと小説ページ以外の文字サイズ指定 */
+    color: #e6e6e6;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 15px 10px 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.kakoi {
+    margin: 60px 0 0 0;
+    line-height: 170%;
+}
+
+.naiyou {
+    margin: 5px 15px;
+}
+
+.divide {/* 枠を二分割する */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.hako {/* 枠を二分割する */
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 50%;
+}
+
+
+/*------------------------------------------------------------
+ トップなどで多用されている見出し
+------------------------------------------------------------ */
+h3 {
+    font-size: 1.1em;/*文字の大きさ*/
+}
+
+
+
+
+/* ********************************************************* */
+/* 更新履歴・メイン目次・連載個別目次レイアウト
+/* ********************************************************* */
+/*------------------------------------------------------------
+ 更新履歴レイアウト
+------------------------------------------------------------ */
+.update {
+    border: 0;
+    height: 100px;
+    overflow: auto;
+    text-align: left;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/*------------------------------------------------------------
+ メイン目次レイアウト
+------------------------------------------------------------ */
+h4 {/* 相手の名の見出し */
+    font-size: 1.1em;/*文字の大きさ*/
+}
+
+h5 {/* 作品の長さの見出し 短編・中編・長編 */
+    margin: 0;
+    padding: 0;
+}
+
+.rensai {/* 連載リスト */
+    margin: 0 0 0 1em;
+}
+
+.rensai a:link {
+    word-break: break-all;
+    display: inline-block;
+}
+
+.rensai a:link img{
+    width:100%;
+}
+
+.tanpen {/* 短編リスト */
+    margin: 0 15px;
+    word-break: break-all;
+}
+
+.tanpen li {
+    display: inline;
+}
+
+.tate {/* 目次・縦表示 */
+    margin: 0 5px 10px 20px;
+}
+
+.shousai {/* 夢小説の詳細を表示する文字 .8em以上にする場合vertical-align:top;を削除 */
+    font-size: .8em;/*文字の大きさ*/
+    color: #aaa;/*文字の色*/
+    vertical-align: top;
+}
+
+
+/*------------------------------------------------------------
+ 連載/長編個別目次レイアウト
+------------------------------------------------------------ */
+.chapter {
+    margin: 0 0 0 10px;
+    padding: 0;
+}
+
+.serial {
+    margin: 0 0 0 20px;
+}
+
+.serial li {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+
+/* ********************************************************* */
+/* 小説ページレイアウト
+/* ********************************************************* */
+/*------------------------------------------------------------
+ 小説ページのタイトル見出し
+------------------------------------------------------------ */
+h2 {
+    font-size: 1.3em;
+    padding: 25px 0;
+}
+
+/*------------------------------------------------------------
+ 小説ページ枠
+------------------------------------------------------------ */
+#box {
+    margin: 0 2%;
+    z-index: 1;
+    position: relative;
+    color: #c4c4c4;/*小説文字色指定*/
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);/*小説文字影指定*/
+}
+
+#box2 {
+    margin: 0 auto;
+    max-width: 690px;/*枠の横幅 */;
+}
+
+#story {
+    font-size: .9em;/*文字サイズ指定 */
+    padding: 0 3% 15px 3%;
+    line-height: 185%;
+    line-break: strict;/*小説の禁則処理 */
+    word-break: normal;/*小説の禁則処理 */
+}
+
+/*------------------------------------------------------------
+ 前項・目次・次項 ページめくりレイアウト
+------------------------------------------------------------ */
+#page {
+/*ページめくりの設定 中央にしたい場合、text-align:left;をtext-align:center;にしてください。右にしたい場合はtext-align:right;  */
+    padding: 10px 0;
+    text-align: left;
+}
+
+#page a:link,#page a:visited,#page a:active {/*リンクの色 マウスが当たってない時 */
+    padding: 7px 15px;
+    background: rgba(255,255,255,.1);/*背景色*/
+    display: inline-block;
+}
+
+#page a:hover {/*リンクの色 マウスが当たってる時 */
+    color: #222;/*文字の色*/
+    background: rgba(255,255,255,.5);/*背景色*/
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0);/*文字の影*/
+}
+
+
+
+/* ********************************************************* */
+/* Galleryページ
+/* ********************************************************* */
+.popup img {
+    border: 1px solid #777;
+}
+
+
+
+
+/* ********************************************************* */
+/* 広告サイト利用者専用 FC2と忍者ツールズ　いらなければ完全削除推奨
+/* ********************************************************* */
+#fc2_footer {
+    position: relative;
+    z-index: 1;
+}
+
+.tdftad li {
+    background: rgba(255,255,255,.4);
+    position: relative;
+    z-index: 1;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.tdftad a {
+    color: #333;
+}
+
+
+
+
+
+
+
+
+/* ********************************************************* */
+/* タブレット用のレイアウト指定 */
+/* ********************************************************* */
+@media screen and (min-width: 1px) and (max-width:798px) {
+
+/* 文字の大きさ設定　拡大
+--------------------------------------------- */
+    body {
+        font-size: 110%;
+    }
+
+/* メールフォーム
+--------------------------------------------- */
+    textarea {
+        width: 75%;
+        height: 100px;
+    }
+
+    input[type=text] {
+        width: 35%;
+    }
+
+/* ヘッダーメインサイト名見出し
+--------------------------------------------- */
+    #header1 {
+        width: 100%;
+        height: 45px;
+    }
+
+    header {
+        width: 100%;
+        height: 45px;
+        position: absolute;
+    }
+
+    h1 {
+        position: absolute;
+    }
+
+    h1 a:link,h1 a:visited,h1 a:active {
+        padding: 6px 8px;
+        margin: 0;
+        height: 36px;
+    }
+
+
+/* スマホとタブレットメニュー
+--------------------------------------------- */
+    #menu {/*大画面用のメニュー非表示へ*/
+        display: none;
+    }
+
+    #menu li {
+        padding: 0;
+        margin: 0;
+    }
+
+    #smart {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .tappu_btn {
+        position: relative;
+        cursor: pointer;
+        float: right;
+        display: block;
+        padding: 1em;
+        font-size: 1em;
+    }
+
+    .tappu_btn .tappu_icon-bar + .tappu_icon-bar {
+        margin-top: 3px;
+    }
+
+    .tappu_icon {
+        float: left;
+        margin: 3px 0 0 .438em;
+    }
+
+    .tappu_icon-bar {
+        display: block;
+        width: 1.125em;
+        height: .125em;
+        background: #fff;/* 3つのバーの色 */
+    }
+
+    .tappu_menu {
+        display: inline-block;
+        float: right;
+        width: 100%;
+    }
+
+    .tappu_no-text {
+        margin: 0;
+    }
+
+    .tappu_arrow {
+        margin: 0 0 0 .4em;
+    }
+
+    .tappu_nav {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        clear: both;
+        font-size: .875em;/*文字の大きさ*/
+        background: rgba(255,255,255,0.9 );/*メニュー背景色*/
+        color: #555;/*メニュー文字の色 リンクがない時*/
+    }
+
+    .tappu_nav,.tappu_nav ul {
+        overflow: hidden;
+    }
+
+    .tappu_nav ul,.tappu_nav li {
+        display: block;
+    }
+
+    .tappu_nav li ul {
+        float: left;
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+
+    .tappu_nav a {
+        margin: 2px 5px;
+        padding: 3px 20px;
+        float: left;
+        color: #555;/*メニュー文字の色 リンクがある時*/
+        display: block;
+        cursor: pointer;
+        line-height: 2.3em;
+    }
+
+    .tappu_nav a:hover {
+        color: #fff;/*メニュー文字の色 マウスを当てた時*/
+        background: rgba(0,0,0,.5);/*メニュー背景色 マウスを当てた時*/
+        border-radius: 3px;
+    }
+
+    .tappu_nav a a {
+        background: none;
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .tappu_nav a a:hover {
+        background: none;
+    }
+
+    .tappu_item a,.tappu_parent-link a {
+        display: inline;
+    }
+
+/* 枠設定
+--------------------------------------------- */
+    .divide {
+        display: inline;
+    }
+
+    .hako {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+/* ********************************************************* */
+/* スマートフォン用のレイアウト指定 */
+/* ********************************************************* */
+@media screen and (max-width: 480px) {
+
+/* メールフォーム
+--------------------------------------------- */
+    textarea {
+        width: 95%;
+        height: 100px;
+    }
+
+    input[type=text] {
+        width: 55%;
+    }
+
+/* 名前変換フォーム
+--------------------------------------------- */
+    .design textarea, .design input[type=text] {
+        display: block;
+        margin: 4px auto;
+    }
+
+    .design input[type=text] {
+        width: 125px;
+        margin: 10px auto;
+    }
+
+    .design .submit {
+        text-align: center;
+        display: block;
+    }
+
+    .design br {
+        display: none;
+    }
+
+/*小説ページ ぺーじめくり*/
+    #page a:link,#page a:visited,#page a:link,#page a:active {
+        padding: 7px 15px;
+    }
+}
