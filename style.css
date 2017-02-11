@@ -104,43 +104,45 @@ form {
     line-height: 160%;
 }
 
-textarea,input[type=text],input[type=reset],input[type=submit],input[type=button],button,select {
-    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic ProN', 'Osaka', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-    margin: 0.125em;
-    padding: 3px .313em;
-    clear: both;
-    display: inline;
-    outline: none;
-    background: rgba(255,255,255,.3);
-    color: #000;
-    border: 0;
-    border-radius: 0.063em;
-    font-size: .9em;
+
+input[type=text]{
+background-color:#ccc;
+border:0;
+padding:5px;
+font-family:Arial, sans-serif;
+color:#fff;
+border:solid 1px #ccc;
+margin:0 0 10px;
+width:100px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+input[type=text]:focus {
+   background-color:#fff;
+   border:solid 1px #ccc;
+   color:#333;
 }
 
-textarea,input[type=text],input[type=reset],input[type=submit],input[type=button],button {
-    appearance: none;
-    -o-appearance: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
+input[type=button]{
+background-color:#ccc;
+border:0;
+padding:10px;
+font-family:Arial, sans-serif;
+color:#fff;
+border:solid 1px #ccc;
+margin:0 0 20px;
+width:auto;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+input[type=button]:focus {
+   background-color:#fff;
+   border:solid 1px #ccc;
+   color:#333;
 }
 
-input[type=reset],input[type=submit],input[type=button],button,select {
-    cursor: pointer;
-}
-
-select {
-    color: #111;
-}
-
-textarea {
-    width: 70%;
-    height: 100px;
-}
-
-input[type=text] {
-    width: 35%;
-}
 
 /*------------------------------------------------------------
  名前変換フォームの幅と装飾
@@ -159,33 +161,6 @@ input[type=text] {
     display: inline-block;
 }
 
-/*------------------------------------------------------------
- FC2やshinobiからレンタルしたフォームの装飾 削除可
------------------------------------------------------------- */
-/*↓fc2メールフォーム用 要らなければ削除可↓ */
-#fc2form #coution2 {
-    color: #eee !important;
-    font-family: Verdana;
-}
-
-#fc2form .submit .button {
-    width: 65px;
-}
-/*↑fc2メールフォーム用 要らなければ削除可↑ */
-
-/*↓shinobiメールフォーム用 要らなければ削除可↓ */
-#shinobi_jp_text {
-    width: 100% !important;
-}
-
-#default_top input {
-    font-size: 1em !important;
-}
-
-#default_top br {
-    display: none;
-}
-/*↑shinobiメールフォーム用 要らなければ削除可↑ */
 
 
 /*------------------------------------------------------------
